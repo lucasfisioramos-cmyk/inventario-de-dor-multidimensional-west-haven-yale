@@ -1,0 +1,338 @@
+/* style.css - Estilização limpa e focada em UX clínica */
+:root {
+    --primary-color: #0284c7;
+    --primary-hover: #0369a1;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --radius: 8px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    padding: 20px 10px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+}
+
+.header .subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Barra de progresso fixa no topo */
+.sticky-progress {
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    background: var(--card-bg);
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.progress-info {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--primary-color);
+    text-align: right;
+}
+
+.progress-bar-bg {
+    background-color: #e2e8f0;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    background-color: var(--primary-color);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Cards de conteúdo */
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 6px;
+    color: #0f172a;
+}
+
+.instruction {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* Grade de Opções Estilo Pill/Card */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 8px;
+}
+
+.radio-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.radio-card:hover {
+    background: #f1f5f9;
+}
+
+.inline-radios {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Blocos de Perguntas e Botões Numéricos de 0 a 6 */
+.question-block {
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.question-block:last-child {
+    border-bottom: none;
+}
+
+.question-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.scale-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.scale-buttons label {
+    flex: 1;
+    text-align: center;
+}
+
+.scale-buttons input[type="radio"] {
+    display: none;
+}
+
+.scale-buttons span {
+    display: block;
+    padding: 10px 0;
+    background: #f1f5f9;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.scale-buttons input[type="radio"]:checked + span {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(2, 132, 199, 0.3);
+}
+
+.scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.checkbox-override {
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: #b91c1c;
+}
+
+/* Botões de Ação */
+.actions {
+    text-align: center;
+    margin: 24px 0;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: #059669;
+    color: white;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+/* Relatório e Resultados */
+.resultado-card {
+    background: #ffffff;
+    border-top: 4px solid var(--primary-color);
+}
+
+.report-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.perfil-box {
+    background-color: #f0f9ff;
+    border-left: 4px solid var(--primary-color);
+    padding: 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.perfil-box h4 {
+    font-size: 1.1rem;
+    margin: 4px 0;
+}
+
+.conduta-box {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #bae6fd;
+    font-size: 0.9rem;
+}
+
+.part-title {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.scale-result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 600px) {
+    .scale-result-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.scale-item {
+    background: #f8fafc;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.scale-item span {
+    font-size: 0.85rem;
+    display: block;
+}
+
+.scale-item strong {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.export-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+}
